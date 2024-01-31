@@ -96,7 +96,7 @@ ALTER TABLE public.elements_planets OWNER TO freecodecamp;
 
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
-    name character varying(30),
+    name character varying(30) NOT NULL,
     description text,
     size_in_millions_of_square_km integer,
     age_in_millions integer
@@ -133,7 +133,7 @@ ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
 
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
-    name character varying(30),
+    name character varying(30) NOT NULL,
     distance_from_planet integer,
     planet integer,
     is_solid boolean
@@ -170,7 +170,7 @@ ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
 
 CREATE TABLE public.planet (
     planet_id integer NOT NULL,
-    name character varying(30),
+    name character varying(30) NOT NULL,
     has_life boolean,
     proportion_vs_earth numeric(8,2),
     star integer,
@@ -209,7 +209,7 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 
 CREATE TABLE public.star (
     star_id integer NOT NULL,
-    name character varying(30),
+    name character varying(30) NOT NULL,
     age_in_millions_of_years integer,
     galaxy integer,
     is_supernova boolean
@@ -458,6 +458,38 @@ ALTER TABLE ONLY public.planet
 
 ALTER TABLE ONLY public.star
     ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
+
+
+--
+-- Name: galaxy uq_name_galaxy; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy
+    ADD CONSTRAINT uq_name_galaxy UNIQUE (name);
+
+
+--
+-- Name: moon uq_name_moon; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT uq_name_moon UNIQUE (name);
+
+
+--
+-- Name: planet uq_name_planet; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT uq_name_planet UNIQUE (name);
+
+
+--
+-- Name: star uq_name_star; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT uq_name_star UNIQUE (name);
 
 
 --
