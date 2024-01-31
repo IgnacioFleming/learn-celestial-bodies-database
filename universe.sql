@@ -329,6 +329,22 @@ INSERT INTO public.moon VALUES (3, 'Artemis', 1520, 1, false);
 INSERT INTO public.moon VALUES (4, 'Ajax', 145, 6, true);
 INSERT INTO public.moon VALUES (5, 'Mederax', 444, 2, true);
 INSERT INTO public.moon VALUES (6, 'Thordis', 244, 5, false);
+INSERT INTO public.moon VALUES (7, 'Prepet', 20, 10, true);
+INSERT INTO public.moon VALUES (8, 'Veret', 80, 8, true);
+INSERT INTO public.moon VALUES (9, 'Ascalon', 120, 9, false);
+INSERT INTO public.moon VALUES (10, 'Delta', 18, 12, true);
+INSERT INTO public.moon VALUES (11, 'Atari', 44, 11, true);
+INSERT INTO public.moon VALUES (12, 'Taxos', 24, 7, false);
+INSERT INTO public.moon VALUES (13, 'Pervix', 55, 10, true);
+INSERT INTO public.moon VALUES (14, 'Holbox', 87, 9, false);
+INSERT INTO public.moon VALUES (15, 'Tartar', 60, 11, true);
+INSERT INTO public.moon VALUES (16, 'Davos', 8, 8, false);
+INSERT INTO public.moon VALUES (17, 'Linux', 77, 9, false);
+INSERT INTO public.moon VALUES (18, 'Hasper', 91, 8, true);
+INSERT INTO public.moon VALUES (19, 'Salvius', 89, 11, true);
+INSERT INTO public.moon VALUES (20, 'Cartum', 80, 12, false);
+INSERT INTO public.moon VALUES (21, 'Milion', 15, 10, true);
+INSERT INTO public.moon VALUES (22, 'Nile', 37, 9, false);
 
 
 --
@@ -379,7 +395,7 @@ SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.moon_moon_id_seq', 6, true);
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 22, true);
 
 
 --
