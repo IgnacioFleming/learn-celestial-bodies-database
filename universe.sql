@@ -98,7 +98,8 @@ CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
     name character varying(30),
     description text,
-    size_in_millions_of_square_km integer
+    size_in_millions_of_square_km integer,
+    age_in_millions integer
 );
 
 
@@ -172,7 +173,8 @@ CREATE TABLE public.planet (
     has_life boolean,
     proportion_vs_earth numeric(8,2),
     star integer,
-    primary_element character varying(30)
+    primary_element character varying(30),
+    is_solid boolean
 );
 
 
@@ -208,7 +210,8 @@ CREATE TABLE public.star (
     star_id integer NOT NULL,
     name character varying(30),
     age_in_millions_of_years integer,
-    galaxy integer
+    galaxy integer,
+    is_supernova boolean
 );
 
 
@@ -287,6 +290,12 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.galaxy VALUES (1, 'Andromeda', 'Galaxia cercana a la via lactea', 145000, 456);
+INSERT INTO public.galaxy VALUES (2, 'Alfa Centauri', 'De las galaxias mas lejanas a la tierra', 180584, 10058);
+INSERT INTO public.galaxy VALUES (3, 'Virgo', 'La galaxia mas linda', 4587, 2100);
+INSERT INTO public.galaxy VALUES (4, 'Via Lactea', 'Nuestra galaxia', 4000, 1800);
+INSERT INTO public.galaxy VALUES (5, 'Orion', 'Galaxia en forma de guerrero', 5978, 3510);
+INSERT INTO public.galaxy VALUES (6, 'Sagitarius', 'Ya no se que poner', 24555, 7833);
 
 
 --
@@ -305,6 +314,12 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.star VALUES (1, 'Sol', 480, 4, false);
+INSERT INTO public.star VALUES (2, 'Ursus', 248, 2, false);
+INSERT INTO public.star VALUES (3, 'Certerus', 1520, 1, false);
+INSERT INTO public.star VALUES (4, 'Polar', 995, 3, true);
+INSERT INTO public.star VALUES (5, 'Polux', 745, 6, false);
+INSERT INTO public.star VALUES (6, 'Castor', 445, 6, false);
 
 
 --
@@ -318,7 +333,7 @@ SELECT pg_catalog.setval('public.elements_element_id_seq', 1, false);
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, false);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 
 
 --
@@ -339,7 +354,7 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, false);
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
+SELECT pg_catalog.setval('public.star_star_id_seq', 6, true);
 
 
 --
