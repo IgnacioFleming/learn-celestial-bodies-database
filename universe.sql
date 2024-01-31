@@ -391,6 +391,30 @@ ALTER TABLE ONLY public.star
 
 
 --
+-- Name: moon fk_moon_planet; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT fk_moon_planet FOREIGN KEY (planet) REFERENCES public.planet(planet_id);
+
+
+--
+-- Name: planet fk_planet_star; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT fk_planet_star FOREIGN KEY (star) REFERENCES public.star(star_id);
+
+
+--
+-- Name: star fk_star_galaxy; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT fk_star_galaxy FOREIGN KEY (galaxy) REFERENCES public.galaxy(galaxy_id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
