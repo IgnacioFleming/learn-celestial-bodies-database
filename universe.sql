@@ -341,6 +341,12 @@ INSERT INTO public.planet VALUES (3, 'Tierra', true, 1.00, 1, true, 3);
 INSERT INTO public.planet VALUES (4, 'ARX', false, 4.10, 6, false, 1);
 INSERT INTO public.planet VALUES (5, 'Z-23', false, 2.80, 2, true, 4);
 INSERT INTO public.planet VALUES (6, 'Jupiter', false, 100.50, 1, false, 1);
+INSERT INTO public.planet VALUES (7, 'Tembal', false, 3.50, 4, true, 5);
+INSERT INTO public.planet VALUES (8, 'Cobol', true, 0.10, 2, false, 4);
+INSERT INTO public.planet VALUES (9, 'Zama', false, 12.80, 6, true, 3);
+INSERT INTO public.planet VALUES (10, 'Dolly', false, 1.10, 5, false, 1);
+INSERT INTO public.planet VALUES (11, 'Almond', true, 0.90, 4, true, 1);
+INSERT INTO public.planet VALUES (12, 'Drexler', false, 10.90, 3, false, 2);
 
 
 --
@@ -380,7 +386,7 @@ SELECT pg_catalog.setval('public.moon_moon_id_seq', 6, true);
 -- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.planet_planet_id_seq', 6, true);
+SELECT pg_catalog.setval('public.planet_planet_id_seq', 12, true);
 
 
 --
