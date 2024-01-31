@@ -279,12 +279,32 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: elements; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.elements VALUES (1, 'H', 'Hidrogeno');
+INSERT INTO public.elements VALUES (2, 'O', 'Oxigeno');
+INSERT INTO public.elements VALUES (3, 'N', 'Nitrogeno');
+INSERT INTO public.elements VALUES (4, 'S', 'Selenio');
+INSERT INTO public.elements VALUES (5, 'C', 'Carbono');
 
 
 --
 -- Data for Name: elements_planets; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.elements_planets VALUES (1, 1);
+INSERT INTO public.elements_planets VALUES (1, 2);
+INSERT INTO public.elements_planets VALUES (2, 1);
+INSERT INTO public.elements_planets VALUES (2, 3);
+INSERT INTO public.elements_planets VALUES (2, 4);
+INSERT INTO public.elements_planets VALUES (2, 5);
+INSERT INTO public.elements_planets VALUES (1, 3);
+INSERT INTO public.elements_planets VALUES (3, 2);
+INSERT INTO public.elements_planets VALUES (3, 3);
+INSERT INTO public.elements_planets VALUES (4, 2);
+INSERT INTO public.elements_planets VALUES (4, 4);
+INSERT INTO public.elements_planets VALUES (4, 6);
+INSERT INTO public.elements_planets VALUES (5, 3);
+INSERT INTO public.elements_planets VALUES (5, 5);
+INSERT INTO public.elements_planets VALUES (5, 6);
 
 
 --
@@ -339,7 +359,7 @@ INSERT INTO public.star VALUES (6, 'Castor', 445, 6, false);
 -- Name: elements_element_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.elements_element_id_seq', 1, false);
+SELECT pg_catalog.setval('public.elements_element_id_seq', 5, true);
 
 
 --
@@ -419,11 +439,27 @@ ALTER TABLE ONLY public.star
 
 
 --
+-- Name: elements_planets fk_element_id; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.elements_planets
+    ADD CONSTRAINT fk_element_id FOREIGN KEY (element_id) REFERENCES public.elements(element_id);
+
+
+--
 -- Name: moon fk_moon_planet; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.moon
     ADD CONSTRAINT fk_moon_planet FOREIGN KEY (planet) REFERENCES public.planet(planet_id);
+
+
+--
+-- Name: elements_planets fk_planet_id; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.elements_planets
+    ADD CONSTRAINT fk_planet_id FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
 
 
 --
