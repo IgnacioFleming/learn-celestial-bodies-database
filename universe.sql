@@ -135,7 +135,8 @@ CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(30),
     distance_from_planet integer,
-    planet integer
+    planet integer,
+    is_solid boolean
 );
 
 
@@ -173,8 +174,8 @@ CREATE TABLE public.planet (
     has_life boolean,
     proportion_vs_earth numeric(8,2),
     star integer,
-    primary_element character varying(30),
-    is_solid boolean
+    is_solid boolean,
+    primary_element_id integer
 );
 
 
@@ -302,12 +303,24 @@ INSERT INTO public.galaxy VALUES (6, 'Sagitarius', 'Ya no se que poner', 24555, 
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.moon VALUES (1, 'Luna', 200, 3, true);
+INSERT INTO public.moon VALUES (2, 'Titan', 800, 6, true);
+INSERT INTO public.moon VALUES (3, 'Artemis', 1520, 1, false);
+INSERT INTO public.moon VALUES (4, 'Ajax', 145, 6, true);
+INSERT INTO public.moon VALUES (5, 'Mederax', 444, 2, true);
+INSERT INTO public.moon VALUES (6, 'Thordis', 244, 5, false);
 
 
 --
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.planet VALUES (1, 'Neptuno', false, 1.50, 1, true, 2);
+INSERT INTO public.planet VALUES (2, 'Vertex', false, 0.80, 5, false, 5);
+INSERT INTO public.planet VALUES (3, 'Tierra', true, 1.00, 1, true, 3);
+INSERT INTO public.planet VALUES (4, 'ARX', false, 4.10, 6, false, 1);
+INSERT INTO public.planet VALUES (5, 'Z-23', false, 2.80, 2, true, 4);
+INSERT INTO public.planet VALUES (6, 'Jupiter', false, 100.50, 1, false, 1);
 
 
 --
@@ -340,14 +353,14 @@ SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.moon_moon_id_seq', 1, false);
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 6, true);
 
 
 --
 -- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, false);
+SELECT pg_catalog.setval('public.planet_planet_id_seq', 6, true);
 
 
 --
